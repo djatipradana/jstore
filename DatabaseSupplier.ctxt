@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=DatabaseSupplier
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseSupplier\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=DatabaseSupplier()
+comment2.params=supplier
+comment2.target=boolean\ addSupplier(Supplier)
+comment3.params=supplier
+comment3.target=boolean\ removeSupplier(Supplier)
+comment4.params=
+comment4.target=Supplier\ getSupplier()
+comment5.params=
+comment5.target=java.lang.String[]\ getListSupplier()
+numComments=6

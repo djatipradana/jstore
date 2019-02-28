@@ -8,17 +8,23 @@
 public class Supplier
 {
     // instance variables - replace the example below with your own
-    protected int id;
-    protected String name;
-    protected String email;
-    protected String phoneNumber;
-    protected String city;
+    private int id;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private Location location;
 
     /**
      * Constructor for objects of class Supplier
      */
-    public Supplier()
+    public Supplier(int id, String name, String email, String phoneNumber, Location location)
     {
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.location=location;
+        
         // initialise instance variables
 
     }
@@ -33,40 +39,54 @@ public class Supplier
      */
     
     
-    public int getId(){
-        return 0;
+    public int getId()
+    {
+        return id;
     }
     
-    public String getName(){
-        return "";
+    public String getName()
+    {
+        return name;
     }
     
-    public String getEmail(){
-        return "";
+    public String getEmail()
+    {
+        return email;
     }
     
-    public String getPhoneNumber(){
-        return "";
+    public String getPhoneNumber()
+    {
+        return phoneNumber;
     }
     
-    public String getCity(){
-        return "";
+    public Location getLocation()
+    {
+        return location;
     }
     
     //set Method
-    public void setId(int id){
-        
+    public void setId(int id)
+    {
+        this.id=id;
     }
     
-    public void setName(String name){
-        
+    public void setName(String name)
+    {
+        this.name=name;
     }
 
-    public void setPhoneNumber(String phoneNumber){
-        
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber=phoneNumber;
     }
 
-    public void setCity(String city){
-        
+    public void setLocation(Location location)
+    {
+        this.location=location;
+    }
+    
+    public void printData()
+    {
+        System.out.println(name);
     }
 }
