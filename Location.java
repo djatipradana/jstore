@@ -1,9 +1,8 @@
-
 /**
- * Write a description of class Location here.
+ * Kelas ini memodelkan lokasi suatu tempat secara detail
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Djati
+ * @version 2019.02.28
  */
 public class Location{
 
@@ -17,40 +16,63 @@ public class Location{
         this.city=city;
         this.description=description;
     }
-    
+    /**
+     * Method untuk mendapatkan provinsi dari suatu lokasi
+     * @return provinsi dari suatu lokasi
+     */
     public String getProvince()
     {
         return province;
     }
-    
+    /**
+     * Method untuk mendapatkan deskripsi dari lokasi
+     * @return deskripsi dari lokasi
+     */
     public String getDescription()
     {
         return description;
     }
-    
+    /**
+     * Method untuk mendapatkan kota dari suatu lokasi
+     * @return kota dari suatu lokasi
+     */
     public String getCity()
     {
         return city;
     }
-    
+    /**
+     * Method untuk mengubah provinsi dari suatu lokasi
+     * @param province provinsi dari suatu lokasi
+     */
     public void setProvince(String province)
     {
         this.province=province;
     }
-    
+    /**
+     * Method untuk mengubah deskripsi dari suatu lokasi
+     * @param description deskripsi dari suatu lokasi
+     */
     public void setDescription(String description)
     {
         this.description=description;
     }
-    
+    /**
+     * Method untuk mengubah kota dari suatu lokasi
+     * @param city kota dari suatu lokasi
+     */
     public void setCity(String city)
     {
         this.city=city;
     }
-
+     /**
+     * Method untuk mencetak provinsi dari suatu lokasi
+     */
     public void printData()
     {
-        System.out.println(province);
+        System.out.println("==========LOCATION=======");
+        System.out.println("Provinsi :" + province);
+        System.out.println("Kota :" + city);
+        System.out.println("Deksripsi :" + description);
     }
 }
 

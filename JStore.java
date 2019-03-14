@@ -18,14 +18,24 @@ public class JStore
         // initialise instance variables
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    
     public static void main(String[] args)
     {
+        Location location1 = new Location("Depok", "Jawa Barat", "Kota Belimbing");
+        Supplier supplier1 = new Supplier(1, "Samsung", "djatipradana@gmail.com", "012345", location1);
+        location1.printData();
+        supplier1.printData();
+        Transaction.orderNewItem(supplier1);
+        Transaction.orderSecondItem(supplier1);
+        Transaction.orderRefurbishedItem(supplier1);
+        Transaction.sellItemPaid(DatabaseItem.itemDB);
+        Transaction.sellItemUnpaid(DatabaseItem.itemDB);
+        Transaction.sellItemInstallment(DatabaseItem.itemDB);
+        
         
     }
+  
+   
+        
+   
 }

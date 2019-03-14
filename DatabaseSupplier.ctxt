@@ -1,14 +1,18 @@
 #BlueJ class context
 comment0.target=DatabaseSupplier
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseSupplier\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Kelas\ ini\ memodelkan\ informasi\ dari\ database\ supplier\ yang\ berisi\ \r\n\ daftar\ supplier\ dan\ data\ terkait\ dengan\ supplier\ pada\ kelas\ Supplier\r\n\ Kelas\ ini\ memiliki\ variabel\ supplier\ yang\ mengacu\ pada\ kelas\ supplier\r\n\r\n\ @author\ Djati\r\n\ @version\ 2019.02.28\r\n
 comment1.params=
 comment1.target=DatabaseSupplier()
 comment2.params=supplier
 comment2.target=boolean\ addSupplier(Supplier)
+comment2.text=\r\n\ Method\ untuk\ memastikan\ ada\ supplier\ baru\ yang\ ditambahkan\r\n\ @param\ supplier\ informasi\ mengenai\ supplier\ itu\ sendiri\ yang\ mengacu\ pada\ kelas\ Supplier\r\n\ @return\ nilai\ true\r\n
 comment3.params=supplier
 comment3.target=boolean\ removeSupplier(Supplier)
+comment3.text=\r\n\ Method\ untuk\ memastikan\ ada\ supplier\ yang\ dihapus\r\n\ @param\ supplier\ informasi\ mengenai\ supplier\ itu\ sendiri\ yang\ mengacu\ pada\ kelas\ Supplier\r\n\ @return\ nilai\ true\r\n
 comment4.params=
 comment4.target=Supplier\ getSupplier()
+comment4.text=\r\n\ Method\ untuk\ mendapatkan\ supplier\ yang\ mengacu\ pada\ kelas\ Supplier\r\n\ @return\ informasi\ mengenai\ supplier\ itu\ sendiri\ \r\n
 comment5.params=
 comment5.target=java.lang.String[]\ getListSupplier()
+comment5.text=\r\n\ Method\ untuk\ melihat\ supplier\ yang\ terdapat\ dalam\ database\ supplier\r\n\ @return\ daftar\ supplier\ yang\ terdapat\ di\ database\ supplier\r\n
 numComments=6

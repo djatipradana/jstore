@@ -1,14 +1,18 @@
 #BlueJ class context
 comment0.target=DatabaseItem
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseItem\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Kelas\ ini\ memodelkan\ informasi\ dari\ database\ item\ yang\ berisi\ daftar\ item\ \r\n\ dan\ data\ terkait\ dengan\ item\ pada\ kelas\ Item\r\n\ Kelas\ ini\ memiliki\ variabel\ item\ yang\ mengacu\ pada\ kelas\ Item\r\n\r\n\ @author\ Djati\r\n\ @version\ 2019.02.28\r\n
 comment1.params=
 comment1.target=DatabaseItem()
 comment2.params=item
 comment2.target=boolean\ addItem(Item)
+comment2.text=\r\n\ Method\ untuk\ memastikan\ ada\ item\ baru\ yang\ ditambahkan\r\n\ @param\ item\ informasi\ mengenai\ item\ itu\ sendiri\ yang\ mengacu\ pada\ kelas\ Item\r\n\ @return\ nilai\ true\r\n
 comment3.params=item
 comment3.target=boolean\ removeItem(Item)
+comment3.text=\r\n\ Method\ untuk\ memastikan\ ada\ item\ yang\ dihapus\r\n\ @param\ item\ informasi\ mengenai\ item\ itu\ sendiri\ yang\ mengacu\ pada\ kelas\ Item\r\n\ @return\ nilai\ false\r\n
 comment4.params=
 comment4.target=Item\ getItem()
+comment4.text=\r\n\ Method\ untuk\ mendapatkan\ item\ yang\ mengacu\ pada\ kelas\ Item\r\n\ @return\ informasi\ mengenai\ item\ itu\ sendiri\ \r\n
 comment5.params=
 comment5.target=java.lang.String[]\ getItemDatabase()
+comment5.text=\r\n\ Method\ untuk\ melihat\ item\ yang\ terdapat\ dalam\ database\ item\r\n\ @return\ daftar\ item\ yang\ terdapat\ di\ database\ item\r\n
 numComments=6
