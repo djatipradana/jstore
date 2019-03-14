@@ -34,10 +34,10 @@ public class Transaction
     public static void orderRefurbishedItem (Supplier supplier)
     {
         ItemCategory category3 = ItemCategory.Electronics;
-        Item barang3 = new Item(4, "Televisi", 5, 5000000, category3, ItemStatus.Second, supplier);
+        Item barang3 = new Item(4, "Televisi", 5, 5000000, category3, ItemStatus.Refurbished, supplier);
         DatabaseItem.addItem(barang3);
         Invoice pesan3 = new Invoice(5, barang3, "14 Maret 2019", barang3.getPrice(), InvoiceStatus.Paid);
-        barang3.setStatus(ItemStatus.Second);
+        barang3.setStatus(ItemStatus.Refurbished);
         pesan3.setStatus(InvoiceStatus.Paid);
         barang3.printData();
         pesan3.printData();
