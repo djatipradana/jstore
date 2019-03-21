@@ -6,26 +6,27 @@
  * @author Djati
  * @version 2019.02.28
  */
-public class Invoice
+public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
     private Item item;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
+    private InvoiceType type;
+    
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, String date, int totalPrice, InvoiceStatus status)
+    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
     {
         this.id=id;
         this.item=item;
         this.date=date;
         this.totalPrice=totalPrice;
-        //this.totalItem=totalItem;
-        this.status=status;
+        this.totalItem=totalItem;
         // initialise instance variables
       
     }
@@ -68,10 +69,9 @@ public class Invoice
         return totalItem;
     }
     
-    public InvoiceStatus getStatus()
-    {
-        return status;
-    }
+    public abstract InvoiceStatus getInvoiceStatus();
+    public abstract InvoiceType getInvoiceType();
+    
     /**
      * Method untuk mengubah id invoice
      * @param id id invoice
@@ -119,14 +119,6 @@ public class Invoice
     /**
      * Method untuk mencetak total price dari invoice
      */
-     public void printData()
-    {
-        System.out.println("==========INVOICE=======");
-        System.out.println("ID :" + id);
-        System.out.println("Date :" + date);
-        System.out.println("Item yang terdapat :" + item.getName());
-        System.out.println("Total Item :" + totalItem);
-        System.out.println("Total harga :" + totalPrice);
-        System.out.println("Status :" + status);
-    }
+     public abstract void printData();
+    
 }
