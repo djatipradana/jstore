@@ -13,6 +13,6 @@ comment4.params=
 comment4.target=Item\ getItem()
 comment4.text=\r\n\ Method\ untuk\ mendapatkan\ item\ yang\ mengacu\ pada\ kelas\ Item\r\n\ @return\ informasi\ mengenai\ item\ itu\ sendiri\ \r\n
 comment5.params=
-comment5.target=java.lang.String[]\ getItemDatabase()
+comment5.target=Item[]\ getItemDatabase()
 comment5.text=\r\n\ Method\ untuk\ melihat\ item\ yang\ terdapat\ dalam\ database\ item\r\n\ @return\ daftar\ item\ yang\ terdapat\ di\ database\ item\r\n
 numComments=6

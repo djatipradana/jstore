@@ -8,8 +8,8 @@
  */
 
 public class DatabaseItem{
-    private String[] listItem;
-    public  static Item itemDB;
+    private Item[] listItem;
+    public  static Item item;
 
     public DatabaseItem(){
     }
@@ -19,7 +19,7 @@ public class DatabaseItem{
      * @return nilai true
      */
     public static boolean addItem(Item item){
-        itemDB=item;
+        //itemDB=item;
         return true;
     }
     /**
@@ -35,13 +35,13 @@ public class DatabaseItem{
      * @return informasi mengenai item itu sendiri 
      */
     public Item getItem(){
-        return itemDB;
+        return item;
     }
     /**
      * Method untuk melihat item yang terdapat dalam database item
      * @return daftar item yang terdapat di database item
      */
-    public String[] getItemDatabase(){
+    public Item[] getItemDatabase(){
         return listItem;
     }
 }

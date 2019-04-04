@@ -47,7 +47,7 @@ public class Transaction
         
     }
     
-    public static void sellItemPaid (Item item)
+    public static void sellItemPaid (Item item, Customer customer)
     {
         Invoice invoice3 = new Sell_Paid(1, item, "30/03/2020", 3, item.getPrice());
         item.printData();
@@ -56,7 +56,7 @@ public class Transaction
 
     }
     
-    public static void sellItemUnpaid (Item item)
+    public static void sellItemUnpaid (Item item, Customer customer)
     {
         Invoice invoice4 = new Sell_Unpaid(1, item, "30/03/2020", 5, item.getPrice(), "30/06/2020");
         item.printData();
@@ -64,9 +64,9 @@ public class Transaction
         
     }
     
-    public static void sellItemInstallment (Item item)
+    public static void sellItemInstallment (Item item, Customer customer)
     {
-        Invoice invoice5 = new Sell_Installment(1, item, "30/03/2020", 5, item.getPrice(), 5);
+        Invoice invoice5 = new Sell_Installment(1, item, "30/03/2020", 5, item.getPrice(), 10);
         item.printData();
         invoice5.printData();
         

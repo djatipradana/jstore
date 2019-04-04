@@ -15,7 +15,7 @@ public enum InvoiceType
     }
     
     public String toString(){
-    return "";
+    return type;
     }
     
 }

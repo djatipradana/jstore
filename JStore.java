@@ -24,9 +24,10 @@ public class JStore
         Location location1 = new Location("Jawa Barat", "Kota Belimbing", "Depok");
         Supplier supplier1 = new Supplier(1, "Djati", "djatipradana@gmail.com", "085724003192", location1);
         Item item1 = new Item(4, "Komputer", 5, 10000000, ItemCategory.Electronics, ItemStatus.New, supplier1);
+        DatabaseItem.addItem(item1);
    
         Transaction.orderNewItem(item1);
-        //Transaction.orderSecondItem(item1);
+        //Transaction.orderSecondItem(DatabaseItem.itemDB);
         //Transaction.orderRefurbishedItem(item1);
         Transaction.sellItemPaid(item1);
         Transaction.sellItemUnpaid(item1);
