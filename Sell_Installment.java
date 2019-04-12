@@ -1,3 +1,5 @@
+import java.util.*;
+import java.text.SimpleDateFormat;
 /**
  * Write a description of class Buy_Paid here.
  *
@@ -11,23 +13,19 @@ public class Sell_Installment extends Invoice
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
+    private boolean isActive;
 
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Sell_Installment (int id, Item item,int totalItem,int installmentPeriod, Customer customer)
+     public Sell_Installment(ArrayList<Integer> item, int installmentPeriod, Customer customer)
     {
-        super(id, item,totalItem);
+        super(item);
         this.installmentPeriod=installmentPeriod;
         this.customer=customer;
+        this.isActive=true;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    
     public int getInstallmentPeriod()
     {
         return installmentPeriod;
@@ -38,41 +36,59 @@ public class Sell_Installment extends Invoice
         return installmentPrice;
     }
     
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
     }
     
-    public InvoiceType getInvoiceType(){
+    public InvoiceType getInvoiceType()
+    {
         return INVOICE_TYPE;
     }
     
-    public Customer getCustomer()
+    public void setInstallmentPrice()
     {
-        return customer;    
-    }
-
-    public void setInstallmentPrice(int totalPrice){
-        installmentPrice=((totalPrice*102)/installmentPeriod)/100;
-
-    }
-
-    public void setTotalPrice(){
-        totalPrice=installmentPrice*installmentPeriod;
+      
     }
     
-    public void  setCustomer(Customer customer)
+    public void setTotalPrice()
     {
-        this.customer=customer;    
+      
     }
-
-    public String toString()
+        
+    public void setCustomer(Customer customer)
     {
-         return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
-                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
-                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
-                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
-                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "status: "
-                + this.INVOICE_STATUS + "Installment Period: " + this.installmentPeriod + "Sell success";
+        this.customer=customer;
+    }
+    
+    
+    public String toString() {
+       setTotalPrice(0);
+       for (int temp1 : this.getItem())
+       {
+           System.out.println(DatabaseItem.getItemFromID(temp1).toString());
+       }
+        
+       SimpleDateFormat sdf = new SimpleDateFormat ("dd MMMMM yyyy");
+       return  "\n========INVOICE========" + 
+               "\nID: " +  getId() + 
+               //"\nItem: " + getItem().getName() +
+               //"\nAmount: "  + getTotalItem() +
+               "\nBuy date: " + sdf.format(getDate().getTime()) +
+               //"\nPrice: " + getItem().getPrice() +
+               "\nTotal price: " + getTotalPrice() +
+               "\nInstallment price: " + installmentPrice +
+               //"\nSupplier ID: " + getItem().getSupplier().getId() +
+               //"\nSupplier name: " + getItem().getSupplier().getName() +
+               "\nCustomer ID: " + customer.getId() +
+               "\nCustomer Name: " + customer.getName() +
+               "\nStatus: " + InvoiceStatus.Installment + 
+               "\nInstallment period: " + installmentPeriod +
+               "\nSell Success\n";
     }
 }

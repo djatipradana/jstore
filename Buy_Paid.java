@@ -1,4 +1,5 @@
-
+import java.util.*;
+import java.text.SimpleDateFormat;
 /**
  * Write a description of class Buy_Paid here.
  *
@@ -9,32 +10,46 @@ public class Buy_Paid extends Invoice
 {
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Buy;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+    private boolean isActive;
 
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Buy_Paid(int id, Item item, String date, int totalItem)
+     public Buy_Paid(ArrayList<Integer> item)
     {
-        super(id, item, totalItem);
-        
+        super(item);
+        isActive=false;
     }
-
-    public InvoiceStatus getInvoiceStatus()
-    {
+    
+    public InvoiceStatus getInvoiceStatus(){
         return INVOICE_STATUS;
     }
     
-    public InvoiceType getInvoiceType()
-    {
+    public InvoiceType getInvoiceType(){
         return INVOICE_TYPE;
     }
     
+    
     public String toString()
     {
-         return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
-                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
-                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
-                + "Supplier name: " + this.getItem().getSupplier().getName() + "status: " + this.INVOICE_STATUS
-                + "Buy success";
+       setTotalPrice(0);
+       for (int tmp : this.getItem())
+       {
+           System.out.println(DatabaseItem.getItemFromID(tmp).toString());
+       }
+        
+       SimpleDateFormat sdf = new SimpleDateFormat ("dd MM yyyy");
+
+         return "\n========INVOICE========" +
+                "\nID: " +  getId() + 
+                //"\nItem: " + getItem().getName() +
+                //"\nAmount: "  + getTotalItem() +
+                "\nBuy date: " + sdf.format(getDate().getTime()) +
+                //"\nPrice: " + getItem().getPrice() +
+                "\nTotal price: " + getTotalPrice() +
+                //"\nSupplier ID: " + getItem().getSupplier().getId() +
+                //"\nSupplier name: " + getItem().getSupplier().getName() +
+                "\nStatus: " + InvoiceStatus.Paid + 
+                "\nSell Success\n";
     }
 }

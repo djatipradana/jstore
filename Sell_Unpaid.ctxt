@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Sell_Unpaid
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Sell_Unpaid\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=id\ item\ totalItem\ customer
-comment1.target=Sell_Unpaid(int,\ Item,\ int,\ Customer)
+comment1.params=item\ customer
+comment1.target=Sell_Unpaid(java.util.ArrayList,\ Customer)
 comment2.params=
 comment2.target=InvoiceStatus\ getInvoiceStatus()
 comment3.params=

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Item
 comment0.text=\r\n\ Kelas\ ini\ memodelkan\ informasi\ dari\ item\ secara\ detail\ seperti\ informasi\ \r\n\ mengenai\ item\ itu\ sendiri\ dan\ data\ terkait\ dengan\ supplier\ pada\ kelas\ Supplier\r\n\ Kelas\ ini\ memiliki\ variabel\ supplier\ yang\ mengacu\ pada\ kelas\ Supplier\r\n\r\n\ @author\ Djati\r\n\ @version\ 2019.02.28\r\n
-comment1.params=id\ name\ stock\ price\ category\ status\ supplier
-comment1.target=Item(int,\ java.lang.String,\ int,\ int,\ ItemCategory,\ ItemStatus,\ Supplier)
+comment1.params=name\ stock\ price\ category\ status\ supplier
+comment1.target=Item(java.lang.String,\ int,\ int,\ ItemCategory,\ ItemStatus,\ Supplier)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Item\r\n
 comment10.params=name
 comment10.target=void\ setName(java.lang.String)

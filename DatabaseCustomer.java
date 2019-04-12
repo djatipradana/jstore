@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * Write a description of class DatabaseCostumer here.
  *
@@ -6,8 +7,8 @@
  */
 public class DatabaseCustomer
 {
-    private Customer[] listCustomer;
-    public static Customer customer;
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();;
+    private static int LAST_CUSTOMER_ID=0;
       
     public DatabaseCustomer()
     {
@@ -20,40 +21,47 @@ public class DatabaseCustomer
      * @return boolean true
      */
     
+    public static ArrayList<Customer> getCustomerDatabase()
+    {
+        return CUSTOMER_DATABASE;
+    }
+    
+    public static int getLastCustomerID()
+    {
+        return LAST_CUSTOMER_ID;
+    }
+    
     public static boolean addCustomer(Customer customer)
     {
+        for (Customer customerDB : CUSTOMER_DATABASE ) {
+            if((customerDB.getName() == customer.getName()) && (customerDB.getEmail() == customer.getEmail())) {
+                return false;
+            }
+        }
+        CUSTOMER_DATABASE.add(customer);
+        LAST_CUSTOMER_ID = customer.getId();        
         return true;
     }
-       /**
-     * method ini digunakan untuk menghapus costumer kedalam database
-     *
-     * @return boolean true
-     */
-   
-    //untuk menambahkan item ke class Item
     
-    //untuk menghapus item dari class Item
-
-    public boolean removeCustomer(Customer customer)
+    public static Customer getCustomer(int id)
     {
-        return true;
+        for (Customer customerDB : CUSTOMER_DATABASE){
+            if (customerDB.getId() == id ){
+                return customerDB;
+            }
+        }
+        return null;
     }
-     /**
-     * Method yang digunakan untuk mereturn nilai costumer
-     * 
-     * @return objek costumer
-     */
     
-    public static Customer getCustomer(){
-     return customer;
-    }
-    /**
-     * Method yang digunakan untuk mereturn nilai dari database costumer
-     * 
-     * @return list costumer
-     */
-    public Customer[] getListCustomer(){
-     return listCustomer;
+    public static boolean removeCustomer(int id)
+    {
+        for (Customer customerDB : CUSTOMER_DATABASE){
+            if (customerDB.getId() == id ){
+                CUSTOMER_DATABASE.remove(customerDB);
+                return true;
+            }
+        }
+        return false;
     }
     
     

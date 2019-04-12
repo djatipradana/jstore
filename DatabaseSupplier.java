@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * Kelas ini memodelkan informasi dari database supplier yang berisi 
  * daftar supplier dan data terkait dengan supplier pada kelas Supplier
@@ -6,40 +7,74 @@
  * @author Djati
  * @version 2019.02.28
  */
-public class DatabaseSupplier{
-    private String listSupplier[];
-    private Supplier supplier;
 
-    public DatabaseSupplier(){
-    }
+public class DatabaseSupplier{
+    
     /**
-     * Method untuk memastikan ada supplier baru yang ditambahkan
-     * @param supplier informasi mengenai supplier itu sendiri yang mengacu pada kelas Supplier
-     * @return nilai true
-     */
-    public boolean addSupplier(Supplier supplier){
+    * List Array dari Supplier yang dibuat
+    */
+   
+    private static ArrayList<Supplier> SUPPLIER_DATABASE = new ArrayList<Supplier>();
+    private static int LAST_SUPPLIER_ID=0;
+   
+    
+    /**
+    * Method DatabaseSupplier merupakan Constructor dari DatabaseSupplier Class
+    * Method ini dapat berisi nilai default dari variabel dalam DatabaseSupplier Class
+    */
+    public DatabaseSupplier()
+    {
+    
+    }
+    
+    /**
+    * Method ini merupakan method yang menambahkan Supplier baru
+    * Kedalam Database Supplier
+    * @param supplier Supplier yang ingin dimasukan kedalam database
+    * @return nilai boolean apakah pemasukan supplier berhasil atau gagal
+    */
+    public static ArrayList<Supplier> getSupplierDatabase(){
+        return SUPPLIER_DATABASE;
+    }
+    
+    public static int getLastSupplierID(){
+        return LAST_SUPPLIER_ID;
+    }
+    
+    public static boolean addSupplier(Supplier supplier)
+    {
+        for (Supplier supplierDB : SUPPLIER_DATABASE ) {
+            if((supplierDB.getName() == supplier.getName()) && (supplierDB.getEmail() == supplier.getEmail()) &&
+             (supplierDB.getPhoneNumber() == supplier.getPhoneNumber())){
+                return false;
+            }
+        }
+        SUPPLIER_DATABASE.add(supplier);
         return true;
     }
-    /**
-     * Method untuk memastikan ada supplier yang dihapus
-     * @param supplier informasi mengenai supplier itu sendiri yang mengacu pada kelas Supplier
-     * @return nilai true
-     */
-    public boolean removeSupplier(Supplier supplier){
-        return true;
+    
+    public static Supplier getSupplier(int id)
+    {
+       for (Supplier supplierDB : SUPPLIER_DATABASE){
+            if (supplierDB.getId() == id)
+            {
+                return supplierDB;
+            }
+       }
+       return null;
     }
-    /**
-     * Method untuk mendapatkan supplier yang mengacu pada kelas Supplier
-     * @return informasi mengenai supplier itu sendiri 
-     */
-    public Supplier getSupplier(){
-        return supplier;
-    }
-    /**
-     * Method untuk melihat supplier yang terdapat dalam database supplier
-     * @return daftar supplier yang terdapat di database supplier
-     */
-    public String[] getListSupplier(){
-        return listSupplier;
-    }
+    
+    public static boolean removeSupplier(int id)
+    {
+        for(Supplier supplierDB : SUPPLIER_DATABASE)
+        {      
+            if(supplierDB.getId() == id)
+            {
+                DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierDB));
+                SUPPLIER_DATABASE.remove(supplierDB);
+                return true;
+            }  
+        }
+        return false;
+    }   
 }

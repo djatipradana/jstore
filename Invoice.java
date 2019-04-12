@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.ArrayList;
 
 /**
  * Kelas ini memodelkan informasi dari suatu invoice seperti informasi mengenai
@@ -12,26 +13,33 @@ public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private Item item;
+    //private Item item;
     private Calendar date;
     protected int totalPrice;
-    private int totalItem;
-    
-    
+    //private int totalItem;
+    private boolean isActive;
+    private Customer customer;
+    private ArrayList<Integer> item = new ArrayList<Integer>();
+   
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, int totalItem)
+    public Invoice(ArrayList<Integer> item)
     {
-        this.id=id;
-        this.item=item;
-        this.totalItem=totalItem;
-        setTotalPrice(totalItem*item.getPrice());
+        this.id=DatabaseInvoice.getLastInvoiceID()+1;
         this.date = Calendar.getInstance();
-        // initialise instance variables
+        this.item = item;
       
     }
-
+    
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    public boolean getIsActive()
+    {
+        return isActive;
+    }
     /**
      * Method untuk mendapatkan id invoice
      * @return id invoice
@@ -44,7 +52,7 @@ public abstract class Invoice
      * Method untuk mendapatkan item pada invoice
      * @return informasi mengenai item pada invoice
      */
-      public Item getItem()
+      public ArrayList<Integer> getItem()
     {
         return item;
     }
@@ -64,15 +72,14 @@ public abstract class Invoice
     {
         return totalPrice;
     }
-    
-    public int getTotalItem()
-    {
-        return totalItem;
-    }
-    
+
     public abstract InvoiceStatus getInvoiceStatus();
     public abstract InvoiceType getInvoiceType();
     
+    public void setIsActive(boolean isActive)
+    {
+        this.isActive=isActive;   
+    }
     /**
      * Method untuk mengubah id invoice
      * @param id id invoice
@@ -86,7 +93,7 @@ public abstract class Invoice
      * Method untuk mengubah item pada invoice
      * @param item item pada invoice
      */
-    public void setItem(Item item)
+    public void setItem(ArrayList<Integer> item)
     {
         this.item=item;
     }
@@ -104,14 +111,12 @@ public abstract class Invoice
      */
     public void setTotalPrice (int totalPrice)
     {
-        this.totalPrice=totalPrice;
+        for(Integer invoice : item)
+        {
+            totalPrice=totalPrice+DatabaseItem.getItemFromID(invoice).getPrice();
+        }
     }
-    
-    public void setTotalItem(int totalItem)
-    {
-        this.totalItem=totalItem;
-    }
-    
+   
     public void setInvoiceStatus(InvoiceStatus status)
     {
       //   

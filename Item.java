@@ -20,9 +20,9 @@ public class Item
     /**
      * Constructor for objects of class Item
      */
-    public Item(int id, String name, int stock, int price,ItemCategory category, ItemStatus status, Supplier supplier)
+    public Item(String name, int stock, int price,ItemCategory category, ItemStatus status, Supplier supplier)
     {
-       this.id=id;
+       this.id=DatabaseItem.getLastItemID()+1;
        this.name=name;
        this.stock=stock;
        this.price=price;

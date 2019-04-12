@@ -9,106 +9,129 @@
  */
 public class Supplier
 {
-    // instance variables - replace the example below with your own
     private int id;
     private String name;
     private String email;
     private String phoneNumber;
     private Location location;
-
     /**
-     * Constructor for objects of class Supplier
+     * Konstruktor dari kelas Supplier
+     * @param id Sebagai ID dari supplier
+     * @param name Sebagai nama dari supplier
+     * @param email Sebagai email dari supplier
+     * @param phoneNumber Sebagai nomor telepon supplier
+     * @param location Sebagai lokasi dari supplier
      */
-    public Supplier(int id, String name, String email, String phoneNumber, Location location)
+    public Supplier(String name, String email, String phoneNumber, Location location)
     {
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.phoneNumber=phoneNumber;
-        this.location=location;
-        
-        // initialise instance variables
-
+       this.id=DatabaseSupplier.getLastSupplierID()+1;
+       this.name=name;
+       this.email=email;
+       this.phoneNumber=phoneNumber;
+       this.location=location;
     }
     
     /**
-     * Method untuk mendapatkan id supplier
-     * @return id supplier
+     * Metode ini akan menampilkan Id dari supplier yang di set oleh konstruktor atau mutator
+     * @return id
      */
     public int getId()
     {
         return id;
     }
+    
     /**
-     * Method untuk mendapatkan nama supplier
-     * @return nama supplier
+     * Metode ini akan menampilkan nama dari supplier yang di set oleh konstruktor atau mutator
+     * @return name
      */
     public String getName()
     {
         return name;
     }
+    
     /**
-     * Method untuk mendapatkan email supplier
-     * @return email supplier
+     * Metode ini akan menampilkan email dari supplier yang di set oleh konstruktor atau mutator
+     * @return email
      */
     public String getEmail()
     {
         return email;
     }
+    
     /**
-     * Method untuk mendapatkan phone number supplier
-     * @return phone number supplier
+     * Metode ini akan menampilkan nomor telepon dari supplier yang di set oleh konstruktor atau mutator
+     * @return phoneNumber
      */
     public String getPhoneNumber()
     {
         return phoneNumber;
     }
+    
     /**
-     * Method untuk mendapatkan lokasi supplier yang mengacu pada kelas Location
-     * @return lokasi supplier
+     * Metode ini akan menampilkan lokasi dari supplier yang di set oleh konstruktor atau mutator
+     * @return phoneNumber
      */
-    public Location getLocation()
+    public Location location()
     {
         return location;
     }
     
     /**
-     * Method untuk mengubah id supplier
-     * @param id id supplier
+     * Metode ini akan meminta Id yang akan ditampilkan di aksesor
+     * @param id Id dari supplier yang ingin di-set
      */
     public void setId(int id)
     {
         this.id=id;
     }
+    
     /**
-     * Method untuk mengubah nama supplier
-     * @param name nama supplier
+     * Metode ini akan meminta nama yang akan ditampilkan di aksesor
+     * @param name Nama dari supplier yang ingin di-set
      */
     public void setName(String name)
     {
         this.name=name;
     }
+    
     /**
-     * Method untuk mengubah phone number supplier
-     * @param phoneNumber phone number supplier
+     * Metode ini akan meminta email supplier yang akan ditampilkan di aksesor
+     * @param email Email dari supplier yang ingin di-set
+     */
+    public void setEmail(String email)
+    {
+        this.email=email;
+    }
+    
+    /**
+     * Metode ini akan meminta no. HP supplier yang akan ditampilkan di aksesor
+     * @param phoneNumber Nomor HP dari supplier yang ingin di-set
      */
     public void setPhoneNumber(String phoneNumber)
     {
         this.phoneNumber=phoneNumber;
     }
+    
     /**
-     * Method untuk mengubah lokasi supplier
-     * @param location lokasi supplier
+     * Metode ini akan meminta lokasi supplier yang akan ditampilkan di aksesor
+     * @param location Location dari supplier yang ingin di-set
      */
     public void setLocation(Location location)
     {
         this.location=location;
     }
+    
     /**
-     * Method untuk mencetak nama supplier
+     * Metode ini dijalankan untuk mencetak nama dari supplier pada layar
      */
+
     public String toString()
     {
-         return "========SUPPLIER=========\nID: "+id+"nama: "+"\nnama: "+name+"\nemail: "+email+"\nnomor telepon: "+phoneNumber+"\nlokasi: "+location.getCity()+", "+location.getProvince();
+        return "===SUPPLIER==="+
+        "\nId: " + id+
+        "\nName: " + name+
+        "\nEmail: " + email+
+        "\nPhone Number: " + phoneNumber+
+        "\nLocation: "+location.getCity()+", "+location.getProvince();
     }
 }
