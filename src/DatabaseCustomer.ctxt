@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=DatabaseCustomer
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseCostumer\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=DatabaseCustomer()
+comment2.params=
+comment2.target=java.util.ArrayList\ getCustomerDatabase()
+comment2.text=\r\n\ method\ ini\ digunakan\ untuk\ menambah\ costumer\ kedalam\ database\r\n\r\n\ @return\ boolean\ true\r\n
+comment3.params=
+comment3.target=int\ getLastCustomerID()
+comment4.params=customer
+comment4.target=boolean\ addCustomer(Customer)
+comment5.params=id
+comment5.target=Customer\ getCustomer(int)
+comment6.params=id
+comment6.target=boolean\ removeCustomer(int)
+numComments=7

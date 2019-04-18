@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=DatabaseItem
+comment0.text=\r\n\ Kelas\ ini\ memodelkan\ informasi\ dari\ database\ item\ yang\ berisi\ daftar\ item\ \r\n\ dan\ data\ terkait\ dengan\ item\ pada\ kelas\ Item\r\n\ Kelas\ ini\ memiliki\ variabel\ item\ yang\ mengacu\ pada\ kelas\ Item\r\n\r\n\ @author\ Djati\r\n\ @version\ 2019.02.28\r\n
+comment1.params=
+comment1.target=DatabaseItem()
+comment2.params=
+comment2.target=java.util.ArrayList\ getItemDatabase()
+comment2.text=\r\n\ Method\ untuk\ memastikan\ ada\ item\ baru\ yang\ ditambahkan\r\n\ @param\ item\ informasi\ mengenai\ item\ itu\ sendiri\ yang\ mengacu\ pada\ kelas\ Item\r\n\ @return\ nilai\ true\r\n
+comment3.params=
+comment3.target=int\ getLastItemID()
+comment4.params=item
+comment4.target=boolean\ addItem(Item)
+comment5.params=id
+comment5.target=Item\ getItemFromID(int)
+comment6.params=supplier
+comment6.target=java.util.ArrayList\ getItemFromSupplier(Supplier)
+comment7.params=category
+comment7.target=java.util.ArrayList\ getItemFromCategory(ItemCategory)
+comment8.params=status
+comment8.target=java.util.ArrayList\ getItemFromStatus(ItemStatus)
+comment9.params=id
+comment9.target=boolean\ removeItem(int)
+numComments=10
