@@ -4,13 +4,8 @@ public class CustomerAlreadyExistsException extends Exception{
     private Customer customer_error;
 
     public CustomerAlreadyExistsException(Customer customer_input){
-        super();
+        super("Customer Email: ");
         customer_error = customer_input;
-    }
-
-    @Override
-    public String getMessage(){
-        return "Customer Email: ";
     }
 
     public String getExMessage(){

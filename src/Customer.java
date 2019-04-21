@@ -137,11 +137,19 @@ public class Customer
     
     public String toString()
     {
+        return "\nId: "+id+
+                ", Nama: "+name+
+                ", Username: "+username+
+                ", Email: "+email+
+                ", Password: "+password;
+        /*
         return "===Customer==="+
         "\nId: "+id+
         "\nNama: "+name+
         "\nUsername: "+username+
         "\nEmail: "+email+
         "\nPassword: "+password;
+         */
+
     }
 }

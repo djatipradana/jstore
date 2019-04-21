@@ -55,10 +55,10 @@ public class Sell_Unpaid extends Invoice
     public String toString()
     {
        setTotalPrice(0);
-       for (int tmp : this.getItem())
+       /*for (int tmp : this.getItem())
        {
            System.out.println(DatabaseItem.getItemFromID(tmp).toString());
-       }
+       }*/
        SimpleDateFormat sdf = new SimpleDateFormat ("dd MM yyyy");
 
        return "\n========INVOICE========" + 

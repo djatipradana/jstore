@@ -74,7 +74,7 @@ public class Sell_Installment extends Invoice
            System.out.println(DatabaseItem.getItemFromID(temp1).toString());
        }
         
-       SimpleDateFormat sdf = new SimpleDateFormat ("dd MMMMM yyyy");
+       SimpleDateFormat sdf = new SimpleDateFormat ("dd MM yyyy");
        return  "\n========INVOICE========" + 
                "\nID: " +  getId() + 
                //"\nItem: " + getItem().getName() +

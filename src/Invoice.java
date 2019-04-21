@@ -70,7 +70,7 @@ public abstract class Invoice
      */
      public int getTotalPrice()
     {
-        return totalPrice;
+        return this.totalPrice;
     }
 
     public abstract InvoiceStatus getInvoiceStatus();
@@ -113,7 +113,7 @@ public abstract class Invoice
     {
         for(Integer invoice : item)
         {
-            totalPrice=totalPrice+DatabaseItem.getItemFromID(invoice).getPrice();
+            this.totalPrice=this.totalPrice+DatabaseItem.getItemFromID(invoice).getPrice();
         }
     }
    

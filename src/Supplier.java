@@ -127,11 +127,19 @@ public class Supplier
 
     public String toString()
     {
+        return "\nId: " + id+
+                "Name: " + name+
+                "Email: " + email+
+                "Phone Number: " + phoneNumber+
+                "Location: "+location.getCity()+", "+location.getProvince();
+        /*
         return "===SUPPLIER==="+
         "\nId: " + id+
         "\nName: " + name+
         "\nEmail: " + email+
         "\nPhone Number: " + phoneNumber+
         "\nLocation: "+location.getCity()+", "+location.getProvince();
+        */
     }
+
 }

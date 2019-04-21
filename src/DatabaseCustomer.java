@@ -31,7 +31,8 @@ public class DatabaseCustomer
         return LAST_CUSTOMER_ID;
     }
 
-    public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException
+    public static boolean addCustomer(Customer customer)
+            throws CustomerAlreadyExistsException
     {
         for(Customer customerDB : CUSTOMER_DATABASE)
         {
@@ -56,6 +57,7 @@ public class DatabaseCustomer
     }
     
     public static boolean removeCustomer(int id)
+            throws CustomerNotFoundException
     {
         for (Customer customerDB : CUSTOMER_DATABASE){
             if (customerDB.getId() == id ){
@@ -63,7 +65,8 @@ public class DatabaseCustomer
                 return true;
             }
         }
-        return false;
+        throw new CustomerNotFoundException(id);
+        //return false;
     }
     
     

@@ -6,14 +6,8 @@ public class CustomerDoesntHaveActiveException extends Exception
 
     public CustomerDoesntHaveActiveException(Customer customer_input)
     {
-        super();
+        super("Customer: ");
         customer_error = customer_input;
-    }
-
-    @Override
-    public String getMessage()
-    {
-        return "Customer: ";
     }
 
     public String getExMessage()

@@ -1,19 +1,14 @@
 import java.io.*;
 
 public class ItemNotFoundException extends Exception{
-    private Item item_error;
+    private int item_error;
 
-    public ItemNotFoundException(Item item_input){
-        super();
+    public ItemNotFoundException(int item_input){
+        super("Item ID: ");
         item_error = item_input;
     }
 
-    @Override
-    public String getMessage(){
-        return "Item ID: ";
-    }
-
     public String getExMessage(){
-        return super.getMessage() + item_error + "not found.";
+        return super.getMessage() + item_error + " not found.";
     }
 }

@@ -23,10 +23,10 @@ public class JStore
     {
        Location location1 = new Location("Jawa Barat","Kota Belimbing","Depok");
         try {
-            DatabaseSupplier.addSupplier(new Supplier("imelda sanjaya", "imelda.sanjaya@gmail.com", "08576590000", location1));
-            DatabaseSupplier.addSupplier(new Supplier("vivian sanjaya", "vivian.sanjaya@gmail.com", "08576592222", location1));
-            DatabaseSupplier.addSupplier(new Supplier("valencia sanjaya", "valencia.sanjaya@gmail.com", "08576593333", location1));
-            DatabaseSupplier.addSupplier(new Supplier("valencia sanjaya", "valencia.sanjaya@gmail.com", "08576593333", location1));
+            DatabaseSupplier.addSupplier(new Supplier("Tak","tak@gmail.com", "0853243532", location1));
+            DatabaseSupplier.addSupplier(new Supplier("Tik","tik@gmail.com", "0854354351", location1));
+            DatabaseSupplier.addSupplier(new Supplier("Tuk","tuk@gmail.com", "0854353123", location1));
+            DatabaseSupplier.addSupplier(new Supplier("Tak","tak@gmail.com", "0853243532", location1));
         } catch (SupplierAlreadyExistsException err){
             System.out.println("==Supplier Already Exists===");
             System.out.println(err.getExMessage());
@@ -35,10 +35,10 @@ public class JStore
 
 //DEMO
         try {
-            DatabaseCustomer.addCustomer(new Customer("Vincent Sanjaya", "vincent.sanjaya@ui.ac.id", "vincent.sanjaya", "gabolehtau", 1998, 12, 06));
-            DatabaseCustomer.addCustomer(new Customer("Vincent Sans", "vincent.sanjaya@gmail.com", "vincent.sanjaya", "gabolehtau", 1998, 12, 06));
-            DatabaseCustomer.addCustomer(new Customer("Sanjaya Vincent", "sanjaya.vincent@gmail.com", "vincent.sanjaya", "gabolehtau", 1998, 12, 06));
-            DatabaseCustomer.addCustomer(new Customer("Vincent Sanjaya", "vincent.sanjaya@ui.ac.id", "vincent.sanjaya", "gabolehtau", 1998, 12, 06));
+            DatabaseCustomer.addCustomer(new Customer("Djati","Djati@gmail.com","djati10","1234", 2019, 9, 10));
+            DatabaseCustomer.addCustomer(new Customer("Luthfi","Luthfi@gmail.com","upi10","5678", 2019, 8, 7));
+            DatabaseCustomer.addCustomer(new Customer("Irsyad","Irsyad@gmail.com","icad10","9908", 2019, 3, 3));
+            DatabaseCustomer.addCustomer(new Customer("Djati","Djati@gmail.com","djati10","1234", 2019, 9, 10));
         }catch (CustomerAlreadyExistsException err){
             System.out.println("===Customer Already Exists===");
             System.out.println(err.getExMessage());
@@ -46,10 +46,10 @@ public class JStore
         }
 
         try {
-            DatabaseItem.addItem(new Item("Water Heater", ItemStatus.NEW, 500000, DatabaseSupplier.getSupplier(1), ItemCategory.ELECTRONICS));
-            DatabaseItem.addItem(new Item("Water Dispenser",  ItemStatus.NEW, 500000, DatabaseSupplier.getSupplier(1), ItemCategory.ELECTRONICS));
-            DatabaseItem.addItem(new Item("Meja",  ItemStatus.NEW, 500000, DatabaseSupplier.getSupplier(2), ItemCategory.FURNITURE));
-            DatabaseItem.addItem(new Item("Meja",  ItemStatus.NEW, 500000, DatabaseSupplier.getSupplier(2), ItemCategory.FURNITURE));
+            DatabaseItem.addItem(new Item("Djati", 2000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
+            DatabaseItem.addItem(new Item("Luthfi", 3000, ItemCategory.Furniture,ItemStatus.New, DatabaseSupplier.getSupplier(2)));
+            DatabaseItem.addItem(new Item("Irsyad", 4000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(3)));
+            DatabaseItem.addItem(new Item("Djati", 2000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
         } catch (ItemAlreadyExistsException err){
             System.out.println("===Item Already Exists===");
             System.out.println(err.getExMessage());
@@ -57,15 +57,28 @@ public class JStore
         }
 
 //item
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(1);
-        Transaction.sellItemPaid(itemID, DatabaseCustomer.getCustomer(1));
-        Transaction.sellItemPaid(itemID, DatabaseCustomer.getCustomer(1));
+        ArrayList<Integer> item = new ArrayList<Integer>();
+        item.add(1);
+        item.add(2);
 
-        itemID.clear();
-        itemID.add(2);
-        Transaction.sellItemUnpaid(itemID, DatabaseCustomer.getCustomer(2));
-        Transaction.sellItemUnpaid(itemID, DatabaseCustomer.getCustomer(2));
+        ArrayList<Integer> item1 = new ArrayList<Integer>();
+        item1.add(2);
+        item1.add(3);
+
+        //ArrayList<Integer> item2 = new ArrayList<Integer>();
+        //item2.add(1);
+        //item2.add(3);
+
+        try {
+            DatabaseInvoice.addInvoice(new Sell_Paid(item, DatabaseCustomer.getCustomer(1)));
+            //DatabaseInvoice.addInvoice(new Sell_Installment(item2, 10, DatabaseCustomer.getCustomer(2)));
+            DatabaseInvoice.addInvoice(new Sell_Unpaid(item1, DatabaseCustomer.getCustomer(3)));
+            DatabaseInvoice.addInvoice(new Sell_Paid(item, DatabaseCustomer.getCustomer(1)));
+        } catch (InvoiceAlreadyExistsException err){
+            System.out.println("===Invoice Already Exists===");
+            System.out.println(err.getExMessage());
+            System.out.println();
+        }
 
 //REMOVE
         try {
@@ -107,15 +120,15 @@ public class JStore
             System.out.println(e.getExMessage());
             System.out.println();
         }
-        ArrayList<Invoice> tempInv = DatabaseInvoice.getInvoiceDatabase();
-        ArrayList<Supplier> tempSup = DatabaseSupplier.getSupplierDatabase();
-        ArrayList<Customer> tempCust = DatabaseCustomer.getCustomerDatabase();
-        ArrayList<Item> tempItem = DatabaseItem.getItemDatabase();
+        ArrayList<Invoice> InvDB = DatabaseInvoice.getInvoiceDatabase();
+        ArrayList<Supplier> SupDB = DatabaseSupplier.getSupplierDatabase();
+        ArrayList<Customer> CustDB = DatabaseCustomer.getCustomerDatabase();
+        ArrayList<Item> ItemmDB = DatabaseItem.getItemDatabase();
 
-        System.out.println(tempSup);
-        System.out.println(tempCust);
-        System.out.println(tempItem);
-        System.out.println(tempInv);
+        System.out.println("====Supplier====\n" + SupDB);
+        System.out.println("====Customer====\n" + CustDB);
+        System.out.println("====Item====\n" + ItemmDB);
+        System.out.println(InvDB);
         
     }
     

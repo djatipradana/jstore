@@ -146,6 +146,9 @@ public class Item
      */
     public String toString()
     {
-         return "======ITEM=======\nId: "+id+"\nName: "+name+"\nStock: "+stock+"\nCategory: "+category+"\nStatus: "+status+"\nSupplier: "+supplier.getName();
+        return "\nId: "+id+", Name: "+name+ ", Price: " +price+ ", Category: "+category+", Status: "+status+", Supplier: "+supplier.getName();
+        /*
+         return "======ITEM=======\nId: "+id+"\nName: "+name+"\nCategory: "+category+"\nStatus: "+status+"\nSupplier: "+supplier.getName();
+         */
     }
 }

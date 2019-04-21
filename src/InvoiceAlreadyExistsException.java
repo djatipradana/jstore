@@ -4,13 +4,8 @@ public class InvoiceAlreadyExistsException extends Exception {
     private Invoice invoice_error;
 
     public InvoiceAlreadyExistsException(Invoice invoice_input){
-        super();
+        super("Invoice ID :");
         invoice_error=invoice_input;
-    }
-
-    @Override
-    public String getMessage(){
-        return "Invoice with Item List";
     }
 
     public String getExMessage(){

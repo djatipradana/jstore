@@ -51,7 +51,7 @@ public class DatabaseSupplier{
             }
         }
         SUPPLIER_DATABASE.add(supplier);
-        LAST_SUPPLIER_ID++;
+        LAST_SUPPLIER_ID = supplier.getId();
         return true;
     }
     
@@ -67,16 +67,18 @@ public class DatabaseSupplier{
     }
     
     public static boolean removeSupplier(int id)
+            throws SupplierNotFoundException
     {
         for(Supplier supplierDB : SUPPLIER_DATABASE)
         {      
             if(supplierDB.getId() == id)
             {
-                DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierDB));
+                //DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierDB));
                 SUPPLIER_DATABASE.remove(supplierDB);
                 return true;
             }  
         }
-        return false;
-    }   
+        throw new SupplierNotFoundException(id);
+        //return false;
+    }
 }

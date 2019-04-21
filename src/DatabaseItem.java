@@ -31,17 +31,17 @@ public class DatabaseItem{
         return LAST_ITEM_ID;
     }
 
-    public static boolean addItem(Item item) throws ItemAlreadyExistsException
-    {
-        for(Item itemDB : ITEM_DATABASE)
-        {
-            if(item.getName()==itemDB.getName()&&item.getCategory()==itemDB.getCategory()&&item.getStatus()==itemDB.getStatus()&&item.getSupplier()==itemDB.getSupplier())
-            {
+    public static boolean addItem(Item item)
+            throws ItemAlreadyExistsException{
+        for (Item itemDB : ITEM_DATABASE ) {
+            if(((itemDB.getName() == item.getName()) && (itemDB.getCategory() == item.getCategory()) &&
+                    (itemDB.getSupplier() == item.getSupplier()))){
                 throw new ItemAlreadyExistsException(item);
+//                    return false;
             }
         }
         ITEM_DATABASE.add(item);
-        LAST_ITEM_ID++);
+        LAST_ITEM_ID = item.getId();
         return true;
     }
     
@@ -97,15 +97,16 @@ public class DatabaseItem{
         }
         return null;
     }
-    
+
     public static boolean removeItem(int id)
-    {
+            throws ItemNotFoundException{
         for(Item item : ITEM_DATABASE){
             if(item.getId() == id){
                 ITEM_DATABASE.remove(item);
                 return true;
             }
         }
-        return false;
+        throw new ItemNotFoundException(id);
+        //return false;
     }
 }
