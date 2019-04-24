@@ -18,7 +18,7 @@ public class CustomerController {
                             @RequestParam(value="email") String email,
                             @RequestParam(value="username") String username,
                             @RequestParam(value="password") String password,
-                            @RequestParam(value="year") int year
+                            @RequestParam(defaultValue = "1999" ) int year
                             )
     {
         Customer customer = new Customer(name, email, username, password, year, 10, 10);
