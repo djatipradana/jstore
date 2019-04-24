@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java.jstore.iml" filepath="$PROJECT_DIR$/.idea/modules/java.jstore.iml" />
       <module fileurl="file://$PROJECT_DIR$/jstore.iml" filepath="$PROJECT_DIR$/jstore.iml" />
     </modules>
   </component>
