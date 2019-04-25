@@ -38,10 +38,13 @@ public class CustomerController {
         return customer;
     }
 
-    @RequestMapping(value = "/logincust/{email}/{password}", method = RequestMethod.POST)
-    public Customer loginCust(@PathVariable String email, String password){
-        Customer cust = DatabaseCustomer.getCustomerLogin(email,password);
-        return cust;
+    @RequestMapping(value="/logincust", method=RequestMethod.POST)
+    public Customer loginCust (@RequestParam(value="email") String email,
+                               @RequestParam(value="password") String password
+    )
+    {
+        Customer customerReply = DatabaseCustomer.getCustomerLogin(email, password);
+        return customerReply;
     }
 
 }

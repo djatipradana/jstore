@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="690733b3-2754-42cd-9205-042f464f9ac8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jstore/DatabaseCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jstore/DatabaseCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jstore/JStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jstore/JStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jstore/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jstore/controller/CustomerController.java" afterDir="false" />
-    </list>
+    <list default="true" id="690733b3-2754-42cd-9205-042f464f9ac8" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/src/main/java/jstore/.gradle/" />
     <ignored path="$PROJECT_DIR$/src/main/java/jstore/build/" />
@@ -403,12 +398,12 @@
       <workItem from="1556112447709" duration="7841000" />
       <workItem from="1556130283879" duration="1212000" />
       <workItem from="1556154308173" duration="908000" />
-      <workItem from="1556184372167" duration="7065000" />
+      <workItem from="1556184372167" duration="7621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33614000" />
+    <option name="totallyTimeSpent" value="34170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -420,7 +415,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="22" width="1283" height="698" extended-state="0" />
+    <frame x="46" y="22" width="1283" height="698" extended-state="1" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19869174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
