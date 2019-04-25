@@ -69,6 +69,16 @@ public class DatabaseCustomer
         throw new CustomerNotFoundException(id);
         //return false;
     }
-    
+
+    public static Customer getCustomerLogin(String email, String
+            password) {
+        for (Customer customerDB : CUSTOMER_DATABASE){
+            if (customerDB.getEmail() == email && customerDB.getPassword() == password  ){
+                return customerDB;
+            }
+        }
+        return null;
+
+    }
     
 }

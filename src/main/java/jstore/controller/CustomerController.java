@@ -27,7 +27,7 @@ public class CustomerController {
         } catch(Exception ex) {
             ex.getMessage();
             return null;
-        };
+        }
 
         return customer;
     }
@@ -36,6 +36,12 @@ public class CustomerController {
     public Customer getCust(@PathVariable int id) {
         Customer customer = DatabaseCustomer.getCustomer(id);
         return customer;
+    }
+
+    @RequestMapping(value = "/logincust/{email}/{password}", method = RequestMethod.POST)
+    public Customer loginCust(@PathVariable String email, String password){
+        Customer cust = DatabaseCustomer.getCustomerLogin(email,password);
+        return cust;
     }
 
 }
