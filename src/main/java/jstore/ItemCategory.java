@@ -7,19 +7,14 @@ package jstore;
  */
 public enum ItemCategory
 {
-    Electronics{
-        public String toString(){
-            return "Electronics";
-        }
-    },
-    Furniture{
-        public String toString(){
-            return "Furniture";
-        }
-    },
-    Stationery{
-        public String toString(){
-            return "Stationery";
-        }
+    Electronics("Electronics"), Furniture("Furniture"), Stationery("Stationery");
+
+    String category;
+    ItemCategory(String category){
+    this.category = category;
+    }
+    
+    public String toString(){
+    return category;
     }
 }

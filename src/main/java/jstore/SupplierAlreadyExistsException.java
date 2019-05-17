@@ -1,5 +1,6 @@
 package jstore;
 import java.io.*;
+import java.lang.*;
 
 public class SupplierAlreadyExistsException extends Exception{
     private Supplier supplier_error;

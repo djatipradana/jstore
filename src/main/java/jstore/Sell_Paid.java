@@ -21,7 +21,8 @@ public class Sell_Paid extends Invoice
     {
         super(item);
         this.customer=customer;
-        this.isActive=false;
+        super.setIsActive(false);
+        super.setTotalPrice(0);
     }
    
     public Customer getCustomer(){

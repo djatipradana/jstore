@@ -1,5 +1,6 @@
 package jstore;
 import java.io.*;
+import java.lang.*;
 
 public class ItemNotFoundException extends Exception{
     private int item_error;

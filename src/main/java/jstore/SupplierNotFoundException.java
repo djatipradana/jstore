@@ -1,5 +1,6 @@
 package jstore;
 import java.io.*;
+import java.lang.*;
 
 public class SupplierNotFoundException extends Exception{
     private int supplier_error;

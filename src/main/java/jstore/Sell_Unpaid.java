@@ -19,7 +19,10 @@ public class Sell_Unpaid extends Invoice
     {
         super(item);
         this.customer=customer;
-        this.isActive= true;
+        super.setIsActive(true);
+        super.setTotalPrice(0);
+        this.dueDate=(Calendar)getDate().clone();
+        dueDate.add(Calendar.DATE, +14);
     }
     
     public InvoiceStatus getInvoiceStatus(){

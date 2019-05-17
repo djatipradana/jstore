@@ -1,5 +1,6 @@
 package jstore;
 import java.io.*;
+import java.lang.*;
 
 public class ItemAlreadyExistsException extends Exception{
     private Item item_error;

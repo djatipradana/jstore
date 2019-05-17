@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class DatabaseCustomer
 {
-    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();;
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
     private static int LAST_CUSTOMER_ID=0;
       
     public DatabaseCustomer()
@@ -43,7 +43,7 @@ public class DatabaseCustomer
             }
         }
         CUSTOMER_DATABASE.add(customer);
-        LAST_CUSTOMER_ID++;
+        LAST_CUSTOMER_ID = customer.getId();;
         return true;
     }
     
@@ -70,10 +70,10 @@ public class DatabaseCustomer
         //return false;
     }
 
-    public static Customer getCustomerLogin(String email, String
-            password) {
+    public static Customer getCustomerLogin(String email, String password) {
         for (Customer customerDB : CUSTOMER_DATABASE){
-            if (customerDB.getEmail() == email && customerDB.getPassword() == password  ){
+            if ((customerDB.getEmail().equals(email)) && (customerDB.getPassword().equals(password)))
+            {
                 return customerDB;
             }
         }

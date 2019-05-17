@@ -57,18 +57,27 @@ public class DatabaseInvoice
        return null;
     }
     
-    public static Invoice getActiveOrder(Customer customer)
+    public static ArrayList<Invoice> getActiveOrder(Customer customer)
             throws CustomerDoesntHaveActiveException
     {
+        ArrayList<Invoice> tmp = new ArrayList<Invoice>();
         for(Invoice invoiceDB : INVOICE_DATABASE)
         {
-        if((invoiceDB.getInvoiceStatus()==InvoiceStatus.Unpaid||invoiceDB.getInvoiceStatus()==InvoiceStatus.Installment)&&invoiceDB.getIsActive()==true)
+        if((invoiceDB.getInvoiceStatus()==InvoiceStatus.Unpaid||invoiceDB.getInvoiceStatus()==InvoiceStatus.Installment) && invoiceDB.getCustomer() == customer)
             {
-                return invoiceDB;
+                tmp.add(invoiceDB);
+                
             }  
         }
-        throw new CustomerDoesntHaveActiveException(customer);
-        //return null;
+        if (tmp != null)
+        {
+           return tmp; 
+        }
+        else 
+        {
+            throw new CustomerDoesntHaveActiveException(customer);
+            //return null;
+        }
     }
     
     public static boolean removeInvoice(int id)
