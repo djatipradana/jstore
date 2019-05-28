@@ -71,7 +71,7 @@ public class Supplier
      * Metode ini akan menampilkan lokasi dari supplier yang di set oleh konstruktor atau mutator
      * @return phoneNumber
      */
-    public Location location()
+    public Location getLocation()
     {
         return location;
     }

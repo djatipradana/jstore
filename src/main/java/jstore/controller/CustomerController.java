@@ -21,20 +21,30 @@ public class CustomerController {
                             @RequestParam(value = "year", defaultValue = "1999" ) int year
                             )
     {
-        Customer customer = new Customer(name, email, username, password, year, 10, 10);
+
         try {
-            DatabaseCustomer.addCustomer(customer);
+            Customer customer = new Customer(name, email, username, password, year, 10, 10);
+            for(Customer cust:DatabaseCustomerPostgre.getCustomerDatabase()){
+                if(cust.getEmail().equals(email) && cust.getPassword().equals(password)){
+                    return null;
+                }
+                else {
+                    DatabaseCustomerPostgre.insertCustomer(customer);
+                    return customer;
+                }
+            }
+            //DatabaseCustomer.addCustomer(customer);
         } catch(Exception ex) {
             ex.getMessage();
-            return null;
+            //return null;
         }
-
-        return customer;
+        return null;
     }
 
     @RequestMapping("/getcustomer/{id}")
     public Customer getCust(@PathVariable int id) {
-        Customer customer = DatabaseCustomer.getCustomer(id);
+        //Customer customer = DatabaseCustomer.getCustomer(id);
+        Customer customer = DatabaseCustomerPostgre.getCustomer(id);
         return customer;
     }
 
@@ -43,8 +53,19 @@ public class CustomerController {
                                @RequestParam(value="password") String password
     )
     {
-        Customer customerReply = DatabaseCustomer.getCustomerLogin(email, password);
-        return customerReply;
+        try {
+            //Customer cust = DatabaseCustomer.getCustomerLogin(email, password);
+            for(Customer cust:DatabaseCustomerPostgre.getCustomerDatabase()){
+                if(cust.getEmail().equals(email)&&cust.getPassword().equals(password)){
+                    return cust;
+                }
+            }
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+        return null;
+    /*    Customer customerReply = DatabaseCustomer.getCustomerLogin(email, password);
+        return customerReply;    */
     }
 
 }

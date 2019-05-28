@@ -36,7 +36,7 @@ public class DatabaseInvoice
     {
         for(Invoice invoiceDB : INVOICE_DATABASE)
         {
-            if(invoiceDB.getItem().equals(invoice.getItem()))
+            if((invoiceDB.getId() == invoice.getId()) && (invoiceDB.getItem().equals(invoice.getItem())))
             {
                 throw new InvoiceAlreadyExistsException(invoice);
             }
@@ -63,7 +63,7 @@ public class DatabaseInvoice
         ArrayList<Invoice> tmp = new ArrayList<Invoice>();
         for(Invoice invoiceDB : INVOICE_DATABASE)
         {
-        if((invoiceDB.getInvoiceStatus()==InvoiceStatus.Unpaid||invoiceDB.getInvoiceStatus()==InvoiceStatus.Installment) && invoiceDB.getCustomer() == customer)
+        if(invoiceDB.getCustomer() == customer)
             {
                 tmp.add(invoiceDB);
                 
@@ -84,7 +84,7 @@ public class DatabaseInvoice
             throws InvoiceNotFoundException
     {
         for(Invoice invoiceDB : INVOICE_DATABASE){
-            if(invoiceDB.getId() == id && invoiceDB.getIsActive() == true){
+            if(invoiceDB.getId() == id){
                 invoiceDB.setIsActive(false);
                 INVOICE_DATABASE.remove(invoiceDB);
                 return true;

@@ -11,11 +11,11 @@ public class Location{
     private String description;
     private String city;
 
-    public Location(String province, String description, String city)
+    public Location(String province, String city, String description)
     {
         this.province=province;
-        this.city=city;
         this.description=description;
+        this.city=city;
     }
     /**
      * Method untuk mendapatkan provinsi dari suatu lokasi

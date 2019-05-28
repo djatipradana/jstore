@@ -22,6 +22,11 @@ public class InvoiceController {
         return null;
     }
 
+    @RequestMapping(value = "/invoices", method = RequestMethod.GET)
+    public ArrayList<Invoice> invoiceList() {
+        return DatabaseInvoice.getInvoiceDatabase();
+    }
+
     @RequestMapping(value = "/invoice/{id_invoice}", method = RequestMethod.GET)
     public Invoice getInvoice(@PathVariable int id_invoice) {
         Invoice invoice = DatabaseInvoice.getInvoice(id_invoice);
@@ -33,16 +38,6 @@ public class InvoiceController {
                                      @RequestParam(value="customerID") int customerID
     ){
         try {
-            /*//int i = 0;
-            int size = listItem.size();
-
-            ArrayList<Integer> item = new ArrayList<Integer>();
-            for (int i=0;i<=size;i++) {
-                int id = DatabaseItem.getItemFromID(i+1).getId();
-                if(listItem.get(i) == id) {
-                    item.add(id);
-                }
-            }*/
             boolean tmp = DatabaseInvoice.addInvoice(new Sell_Paid(listItem, DatabaseCustomer.getCustomer(customerID)));
         	if (tmp == true) {
         		return DatabaseInvoice.getInvoice(DatabaseInvoice.getLastInvoiceID());
@@ -71,12 +66,13 @@ public class InvoiceController {
 
     @RequestMapping(value = "/createinvoiceinstallment", method = RequestMethod.POST)
     public Invoice createInvoiceInstallment(@RequestParam(value="listItem") ArrayList<Integer> listItem,
-                                            @RequestParam(value="customerID") int customerID,
-                                            @RequestParam(value="installmentPeriod") int installmentPeriod
+                                            @RequestParam(value="installmentPeriod") int installmentPeriod,
+                                            @RequestParam(value="customerID") int customerID
+
     )
     {
         try {
-            boolean tmp = DatabaseInvoice.addInvoice(new Sell_Installment(listItem, installmentPeriod,DatabaseCustomer.getCustomer(customerID)));
+            boolean tmp = DatabaseInvoice.addInvoice(new Sell_Installment(listItem, installmentPeriod, DatabaseCustomer.getCustomer(customerID)));
         	if (tmp == true) {
         		return DatabaseInvoice.getInvoice(DatabaseInvoice.getLastInvoiceID());
       

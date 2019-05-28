@@ -74,7 +74,7 @@ public class Transaction
 
     public static boolean finishTransaction (Invoice invoice){
         Invoice invoiceDB = DatabaseInvoice.getInvoice(invoice.getId());
-        if ( (invoiceDB.getInvoiceStatus() == InvoiceStatus.Unpaid) || (invoiceDB.getInvoiceStatus() == InvoiceStatus.Installment)){
+        if ((invoiceDB.getInvoiceStatus() == InvoiceStatus.Paid) || (invoiceDB.getInvoiceStatus() == InvoiceStatus.Unpaid) || (invoiceDB.getInvoiceStatus() == InvoiceStatus.Installment)){
             invoice.setIsActive(false);
             System.out.println("Invoice isActive: " + invoice.getIsActive());
             return true;
@@ -86,17 +86,11 @@ public class Transaction
 
     public static boolean cancelTransaction (Invoice invoice){
         Invoice bon = DatabaseInvoice.getInvoice(invoice.getId());
-        if ( (bon.getInvoiceStatus() == InvoiceStatus.Unpaid) || (bon.getInvoiceStatus() == InvoiceStatus.Installment)){
             try {
                 DatabaseInvoice.removeInvoice(bon.getId());
                 return true;
             }catch (InvoiceNotFoundException err){
                 return false;
             }
-
-        }
-        else{
-            return false;
-        }
     }
 }

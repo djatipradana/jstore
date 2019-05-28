@@ -37,7 +37,7 @@ public class DatabaseCustomer
     {
         for(Customer customerDB : CUSTOMER_DATABASE)
         {
-            if(customer.getName()==customerDB.getName()||customer.getEmail()==customerDB.getEmail())
+            if(customer.getPassword()==customerDB.getPassword()||customer.getEmail()==customerDB.getEmail())
             {
                 throw new CustomerAlreadyExistsException(customer);
             }

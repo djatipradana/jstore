@@ -1,5 +1,6 @@
 package jstore;
 import java.lang.*;
+import java.io.*;
 
 public class InvoiceAlreadyExistsException extends Exception {
     private Invoice invoice_error;

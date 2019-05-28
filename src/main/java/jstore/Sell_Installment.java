@@ -26,7 +26,7 @@ public class Sell_Installment extends Invoice
         this.customer=customer;
         super.setIsActive(true);
         super.setTotalPrice(0);
-        this.installmentPrice=((getTotalPrice() / installmentPeriod) * 102) / 100;
+        this.installmentPrice=(getTotalPrice() / installmentPeriod);
     }
     
     public int getInstallmentPeriod()

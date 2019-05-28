@@ -41,8 +41,20 @@ public class Customer
         this.email=email;
         this.username=username;
         this.password=password;
-        this.id=DatabaseCustomer.getLastCustomerID()+1;
+        this.id=DatabaseCustomerPostgre.getLastCustomerId()+1;
+        //this.id=DatabaseCustomer.getLastCustomerID()+1;
         this.birthDate=new GregorianCalendar(year,month-1,dayOfMonth);
+    }
+
+    public Customer(int id, String name, String email, String username, String password, Calendar birthDate)
+    {
+        // initialise instance variables
+        this.name=name;
+        this.email=email;
+        this.username=username;
+        this.password=password;
+        this.id=DatabaseCustomerPostgre.getLastCustomerId()+1;
+        this.birthDate=birthDate;
     }
 
     /**

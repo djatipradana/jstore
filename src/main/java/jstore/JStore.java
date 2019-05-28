@@ -24,10 +24,12 @@ public class JStore {
 
     public static void main(String[] args)
     {
+        SpringApplication.run(JStore.class, args);
 
-       Location location1 = new Location("Jawa Barat","Kota Belimbing","Depok");
+        Location location1 = new Location("Jawa Barat", "Depok", "Kota Belimbing");
+
         try {
-            DatabaseSupplier.addSupplier(new Supplier("Tak","tak@gmail.com", "0853243532", location1));
+            DatabaseSupplier.addSupplier(new Supplier("Tak","tak@gmail.com", "0853243532", new Location("Jawa Barat", "Depok", "Kota Belimbing")));
             //DatabaseSupplier.addSupplier(new Supplier("Tik","tik@gmail.com", "0854354351", location1));
             //DatabaseSupplier.addSupplier(new Supplier("Tuk","tuk@gmail.com", "0854353123", location1));
             //DatabaseSupplier.addSupplier(new Supplier("Tak","tak@gmail.com", "0853243532", location1));
@@ -48,9 +50,9 @@ public class JStore {
         }*/
 
         try {
-            DatabaseItem.addItem(new Item("Djati", 2000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
-            DatabaseItem.addItem(new Item("Luthfi", 3000, ItemCategory.Furniture,ItemStatus.New, DatabaseSupplier.getSupplier(1)));
-            DatabaseItem.addItem(new Item("Irsyad", 4000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
+            DatabaseItem.addItem(new Item("Handphone", 2000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
+            DatabaseItem.addItem(new Item("Meja", 3000, ItemCategory.Furniture,ItemStatus.New, DatabaseSupplier.getSupplier(1)));
+            DatabaseItem.addItem(new Item("Televisi", 4000, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
             //DatabaseItem.addItem(new Item("Gemma", 1000, ItemCategory.Furniture, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
         } catch (ItemAlreadyExistsException err){
             System.out.println("===Item Already Exists===");
@@ -58,7 +60,6 @@ public class JStore {
             System.out.println();
         }
 
-        SpringApplication.run(JStore.class, args);
 
 
     }
