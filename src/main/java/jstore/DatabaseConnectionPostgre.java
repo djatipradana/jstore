@@ -9,7 +9,7 @@ public class DatabaseConnectionPostgre {
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jstore","postgres","");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jstore","postgres","djati");
             System.out.println("Opened database successfully");
         }catch (Exception e){
             e.printStackTrace();
